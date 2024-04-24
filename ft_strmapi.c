@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: maagosti <maagosti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:42:46 by krain             #+#    #+#             */
-/*   Updated: 2024/04/20 17:46:57 by krain            ###   ########.fr       */
+/*   Updated: 2024/04/22 13:24:50 by maagosti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,19 @@
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	(void)s;
-	(void)f;
-	return (NULL);
+	char	*dest;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	dest = ft_strdup(s);
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dest[i] = f(i, s[i]);
+		i++;
+	}
+	return (dest);
 }

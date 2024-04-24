@@ -57,8 +57,18 @@ SRCS_CHAR		=	ft_isalnum.c\
 SRCS_CONVERTOR	=	ft_itoa.c\
 					ft_atoi.c\
 
+SRCS_BONUS		=	ft_lstadd_back.c\
+					ft_lstadd_front.c\
+					ft_lstclear.c\
+					ft_lstdelone.c\
+					ft_lstiter.c\
+					ft_lstlast.c\
+					ft_lstmap.c\
+					ft_lstnew.c\
+					ft_lstsize.c\
 
 OBJS		=	$(SRCS:.c=.o)
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
 ################################################################################
 #                                Makefile Rules                                #
@@ -70,10 +80,13 @@ OBJS		=	$(SRCS:.c=.o)
 $(NAME): $(OBJS)
 		ar rcs $(NAME) $(OBJS)
 
+bonus: $(OBJS) $(OBJS_BONUS)
+		ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+
 all: $(NAME)
 
 clean:
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 		$(RM) $(NAME)

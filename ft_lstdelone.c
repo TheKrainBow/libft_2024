@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maagosti <maagosti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 14:49:55 by krain             #+#    #+#             */
-/*   Updated: 2024/04/22 13:23:00 by maagosti         ###   ########.fr       */
+/*   Created: 2024/04/22 17:02:49 by maagosti          #+#    #+#             */
+/*   Updated: 2024/04/23 20:26:42 by maagosti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	return (c - (32 * (c >= 'a' && c <= 'z')));
+	del(lst->content);
+	free(lst);
 }
